@@ -1,8 +1,8 @@
-import Vue from "vue";
-import App from "./App.vue";
+import Vue from 'vue';
+import DWU from './DWU.vue';
 
 Vue.config.productionTip = false;
-
+console.log('uhhg?');
 new Vue({
-  render: h => h(App)
-}).$mount("#app");
+  render: h => h(DWU)
+}).$mount('#app');
