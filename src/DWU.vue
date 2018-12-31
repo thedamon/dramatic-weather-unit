@@ -7,8 +7,32 @@
     </header>
     <main>
       <img class="the-sun" src="./assets/sun.svg">
-      <Section>
-Whenever <span>you’re</span> taken by a strange urge  
+      <Section>{{ precis }}</Section>
+      <Section>{{ unit }}</Section>
+      <Section>{{ history }}</Section>
+      <Section>{{ promise }}</Section>
+      <Section>{{ fin }}</Section>
+    </main>
+  </div>
+</template>
+
+<script>
+// TODO: react to live weather data and day/night.
+
+import Hr from "./components/Hrrr";
+import Section from "./components/Section";
+import TitleCard from "./components/TitleCard";
+
+export default {
+  name: "dramatic-weather-unit",
+  components: {
+    TitleCard,
+    Section,
+    Hr
+  },
+  data() {
+    return {
+      precis: `Whenever <span>you’re</span> taken by a strange urge  
 
  1. And you find yourself standing in the middle of the street  
  1. In your cul de sac  
@@ -33,11 +57,8 @@ IT
 
 And then you go inside.  
 Sip at your beer.  
-Maybe tidy up the kitchen counter.  
-
-      </Section>
-      <Section>
-
+Maybe tidy up the kitchen counter.`,
+      unit: `
 That’s when they’ve failed.
 
 Because the Dramatic Weather Unit knows *that’s* when **it** *should* have happened.  
@@ -70,10 +91,8 @@ Suits just so.
 
 The dramatic weather unit has arrived, ladies and gentlemen.  
 Your tax dollars at work!
-
-</Section>
-<Section>
-
+    `,
+      history: `
 Ever since way back then, yes, back, there, in the day, when a lawmaker looked up from his desk and out the window at all that out there and proclaimed:
 
 *Never should a sunshower be wasted!*
@@ -88,12 +107,8 @@ They’d be called pathetic, or worse, the whole department a preposterous falla
 But you have to make concessions, here and there, to exist within a system that doesn’t intrinsically value your perspective on which shit matters — and which shit’s shit.
 
 So, ladies and gentlemen, as the fiscal year draws to its close, we ask you to shut up, and go outside, and think about every moment of beauty and every life given meaning.
-
-</Section>
-<Section>
-
-### This is the Dramatic Weather Unit.
-
+    `,
+      promise: `## This is the Dramatic Weather Unit.
 
 When they’re successful they’re invisible. They just plant the seeds for the wind and the rain and then you to harvest.
 
@@ -120,37 +135,17 @@ And then, as the snow melts and warm fingers of sunshine cut through the winter 
 And in late fall, when the air falls cold as fast as the wind can clear it away, and the dry leaves skitter and whirl over the asphalt — They spark the wanderlust in you again, without even lifting a finger.
 
 And don’t even get me started on the shit they pull with rainbows.
-
-</Section>
-<Section>
- 
+      `,
+      fin: `
 This is the dramatic weather unit.
-
 
 And you love them.  
 Because they make your life like a movie.  
 And you love movies.  
 
 
-*Never should a sunshower be wasted!*
-      </Section>
-    </main>
-  </div>
-</template>
-
-<script>
-// TODO: react to live weather data and day/night.
-
-import Hr from "./components/Hrrr";
-import Section from "./components/Section";
-import TitleCard from "./components/TitleCard";
-
-export default {
-  name: "dramatic-weather-unit",
-  components: {
-    TitleCard,
-    Section,
-    Hr
+*Never should a sunshower be wasted!*`
+    };
   },
   mounted() {}
 };
