@@ -7,11 +7,11 @@
     </header>
     <main>
       <img class="the-sun" src="./assets/sun.svg">
-      <Section>{{ precis }}</Section>
-      <Section>{{ unit }}</Section>
-      <Section>{{ history }}</Section>
-      <Section>{{ promise }}</Section>
-      <Section>{{ fin }}</Section>
+      <Section v-html="precis"></Section>
+      <Section v-html="unit"></Section>
+      <Section v-html="history"></Section>
+      <Section v-html="promise"></Section>
+      <Section v-html="fin"></Section>
     </main>
   </div>
 </template>
