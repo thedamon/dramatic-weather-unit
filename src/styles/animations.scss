@@ -73,6 +73,7 @@
 }
 
 @mixin spin-animation($duration: 10, $delay: 0){
+  transform-origin: 50% 50%;
   animation: spin #{$duration}s linear #{$delay}s infinite;
 }
 

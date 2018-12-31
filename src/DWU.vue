@@ -27,7 +27,7 @@ And in this strange humid moment you can feel it about to happen.
 
 You can feel it so clearly.  
 
-IT  
+It.  
   
 -------
 
