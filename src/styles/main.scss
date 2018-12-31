@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,600,800");
+* {
+  font-family: "EB Garamond", Wingdings, serif;
+  font-weight: 400;
+}
+
+@import './animations.scss';
+
+:root {
+  --l: 0%;
+}
+
+body {
+  // background-color: blue;
+  margin: 0;
+}
+
+// General typography
+
+p, li {
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+br {
+  display: block;
+  margin-bottom: 10px;
+  content: "";
+}
+
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+// Step it out
+ol {
+@for $i from 1 through 8 {
+  $indent: ($i * 24px);
+
+  li:nth-child(#{$i}) {
+    margin-left: $indent;
+  }
+}
+}
+
+p {
+  margin: 40px 0;
+}
+
+p + ol,
+p + ul {
+  margin-top: -30px;
+}
+
+h3 {
+  font-size: 36px;
+  margin: 60px 0;
+}
+
+.poetry {
+  padding: 5vw;
+}
+
+.poetry {
+  // p,h1,h2,h3{
+  max-width: 666px;
+  margin-left: auto;
+  margin-right: auto;
+// }
+}
+
+
+// fade out scroll effect.
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+}
+
+$head-height: 100vh;
+$bridge-height: 100vh;
+$overlap: 40vh;
+$main-bg: rgba(255,255,255,1);
+$main-offset: $head-height + $bridge-height - $overlap;
+
+main {
+  z-index: 2;
+  background: $main-bg;
+  // padding-top: 100vh;
+  position: relative;
+  margin-top: $main-offset;
+}
+main::before {
+  content: "";
+  height: $bridge-height;
+  width: 100%;
+  background: linear-gradient(rgba(255,255,255,0), $main-bg);
+  position: absolute;
+  top: -$bridge-height;
+}
+
+
+// hr {
+//   // width: 100vw;
+//   position: absolute;
+//   left: 0;
+//   overflow: hidden;
+// }
+
+// hr::after {
+//   content: '';
+//   height: 10px;
+//   position: relative;
+// }
+
+hr::before{
+  content: '🌧';
+  font-size: 110px;  
+  z-index: 2;
+  left: 0;
+  transform: translateX(var(--l));
+  position: absolute;
+}
+
+
+
+
+
+
+
+
+.poetry p {
+  position: relative;
+  z-index: 3;
+}
+
+svg {
+  display: block;
+  overflow: visible;
+}
+
+
+//bullshit
+
+.the-sun {
+  width: 33%;
+  position: absolute;
+  top: 0;
+  right: -20px;
+}

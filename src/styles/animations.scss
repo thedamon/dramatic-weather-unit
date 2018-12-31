@@ -1,0 +1,119 @@
+
+@keyframes bob {
+  0% {
+    transform: translateY(0%);  
+  }
+  43% {
+    transform: translateY(5%);  
+  } 
+  100% {
+    transform: translateY(0%);
+  }     
+}
+
+@keyframes track {
+  0% {
+    transform: translateX(0%);  
+  }
+  43% {
+    transform: translateX(-50%);  
+  } 
+  100% {
+    transform: translateX(0%);
+  }  
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg)}
+  100% { transform: rotate(360deg)}
+}
+
+@keyframes flicker {
+  0% { opacity: 0 }
+  50% { opacity: 1 }
+  // 11% { opacity: 0 }
+  // 20% { opacity: 1 }
+  // 21% { opacity: 0 }
+  // 40% { opacity: 1 }
+  // 41% { opacity: 0 }
+  // 45% { opacity: 1 }
+  // 48% { opacity: 0 }
+  // 70% { opacity: 1 }
+  // 71% { opacity: 0 }
+  // 90% { opacity: 1 }
+  // 91% { opacity: 0 }
+  // 94% { opacity: 1 }
+  // 100% { opacity: 0 }
+}
+
+@keyframes warble {
+  0% {transform: matrix3d(
+                    1, 0, 0, 0, 
+                    0, 1, 0, 0, 
+                    0, 0, 1, 0, 
+                    100, 100, 0, 1);}
+  40% {transform: matrix3d(
+                    1.545696, 0.369308, 0, 0.001411, 
+                    -0.3919, 1.784489, 0, 0.001474, 
+                    0, 0, 1, 0, 
+                    100, 100, 0, 1);}
+  100% {transform: matrix3d(
+                    1, 0, 0, 0, 
+                    0, 1, 0, 0, 
+                    0, 0, 1, 0, 
+                    100, 100, 0, 1);}
+}
+
+@mixin bob-animation($duration: 6, $delay: 0){
+  animation: bob #{$duration}s cubic-bezier(0.63, 0.14, 0.6, 0.85) #{$delay}s infinite; 
+}
+
+@mixin track-animation($duration: 10, $delay: 0){
+  animation: track #{$duration}s ease-in-out #{$delay}s infinite;
+}
+
+@mixin spin-animation($duration: 10, $delay: 0){
+  animation: spin #{$duration}s linear #{$delay}s infinite;
+}
+
+@mixin flicker-animation ($duration: .3, $delay: 0){
+  animation: flicker #{$duration}s linear #{$delay}s infinite;
+}
+
+@mixin warble-animation($duration: 40, $delay: 0){
+  // animation: warble #{$duration}s ease-in-out #{$delay}s infinite;
+}
+
+.big-rain-cloud {
+  transform: translate3d(0, 0, 0);
+  @include bob-animation();
+}
+.cloud-container {
+  transform: translate3d(0, 0, 0);
+  @include track-animation($duration: 25, $delay: 8);
+}
+.the-sun {
+  transform: translate3d(0, 0, 0);
+  transform-origin: 0px 0px 0px;
+  @include spin-animation($duration: 60);
+}
+
+#cloud {
+  // transform: translate3d(0, 0, 0);
+  @include warble-animation();
+}
+
+#rain1 {
+  opacity: 0;
+  @include flicker-animation($duration: .25);
+}
+
+#rain2 {
+  opacity: 0;
+  @include flicker-animation($delay: 0.5);
+}
+
+#rain3 {
+  opacity: 0;
+  @include flicker-animation($delay: 0.8, $duration: .4);
+}
