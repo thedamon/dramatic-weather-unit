@@ -3,7 +3,7 @@
     <div v-if="!text" class="slot">
       <slot></slot>
     </div>
-    <div class="poetry" v-html="md(text)"></div>
+    <div v-html="md(text)"></div>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     md(text) {
-      return marked(text);
+      return marked(text.replace(/&gt;+/g, ">"));
     }
   },
   mounted() {

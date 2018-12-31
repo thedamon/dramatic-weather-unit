@@ -96,7 +96,7 @@
 .the-sun {
   transform: translate3d(0, 0, 0);
   transform-origin: 0px 0px 0px;
-  @include spin-animation($duration: 60);
+  @include spin-animation($duration: 490);
 }
 
 #cloud {

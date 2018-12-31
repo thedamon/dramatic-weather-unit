@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,600,800");
 * {
   font-family: "EB Garamond", Wingdings, serif;
-  font-weight: 400;
 }
 
 @import './animations.scss';
@@ -13,6 +12,7 @@
 body {
   // background-color: blue;
   margin: 0;
+  overflow-x: hidden;
 }
 
 // General typography
@@ -38,11 +38,11 @@ li {
   margin: 10px 0;
 }
 // Step it out
-ol {
-@for $i from 1 through 8 {
+ul {
+@for $i from 1 through 12 {
   $indent: ($i * 24px);
 
-  li:nth-child(#{$i}) {
+  li:nth-child(#{$i + 1}) {
     margin-left: $indent;
   }
 }
@@ -50,6 +50,24 @@ ol {
 
 p {
   margin: 40px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+li p {
+  margin: 0;
+}
+li blockquote {
+  margin: 0;
+}
+
+ul + ul {
+  margin-top: 40px;
 }
 
 p + ol,
@@ -73,20 +91,28 @@ h3 {
   margin-right: auto;
 // }
 }
-
+.-c { text-align: center; }
+.-r {
+  text-align: right;
+}
 
 // fade out scroll effect.
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: black;
+  background: #0c1a3c;
   color: white;
+  
+}
+
+h1 {
+  text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaaaaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15)
 }
 
 $head-height: 100vh;
-$bridge-height: 100vh;
-$overlap: 40vh;
+$bridge-height: 120vh;
+$overlap: 60vh;
 $main-bg: rgba(255,255,255,1);
 $main-offset: $head-height + $bridge-height - $overlap;
 
@@ -96,44 +122,47 @@ main {
   // padding-top: 100vh;
   position: relative;
   margin-top: $main-offset;
+  padding-top: 160px;
+}
+
+.poem {
+  padding-bottom: 50vh;
 }
 main::before {
   content: "";
   height: $bridge-height;
   width: 100%;
-  background: linear-gradient(rgba(255,255,255,0), $main-bg);
+  background: linear-gradient(rgba(225,235,255,0), $main-bg);
   position: absolute;
   top: -$bridge-height;
 }
 
 
-// hr {
-//   // width: 100vw;
-//   position: absolute;
-//   left: 0;
-//   overflow: hidden;
-// }
-
-// hr::after {
-//   content: '';
-//   height: 10px;
-//   position: relative;
-// }
-
-hr::before{
-  content: '🌧';
-  font-size: 110px;  
-  z-index: 2;
-  left: 0;
-  transform: translateX(var(--l));
-  position: absolute;
+hr {
+  display: block;
+  width: 40px;
+  margin: 40px auto;
+  border: none;
+  border-bottom: solid 1px black;
 }
 
 
 
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  text-transform: lowercase;
+  color: #777;
+  font-style: italic;
+  text-align: right;
+}
 
-
-
+.radio {
+  color: transparent;
+  text-shadow: -2px 2px 3px #333, -2px 2px 9px #777;
+  text-shadow: -2px -3px 1px #FFF, 0px 0px 60px #000, 0px 0px 60px #000, 0px 0px 60px #000, 0px 0px 60px #000;
+  transform: skewX(10deg);
+}
 
 
 .poetry p {
@@ -154,4 +183,5 @@ svg {
   position: absolute;
   top: 0;
   right: -20px;
+  top: 15vh;
 }
