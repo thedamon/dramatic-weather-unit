@@ -114,7 +114,7 @@ $head-height: 100vh;
 $bridge-height: 120vh;
 $overlap: 60vh;
 $main-bg: rgba(255,255,255,1);
-$main-offset: $head-height + $bridge-height - $overlap;
+$main-offset: $head-height + $bridge-height;
 
 main {
   z-index: 2;

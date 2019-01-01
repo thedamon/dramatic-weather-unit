@@ -97,6 +97,7 @@ The dramatic weather unit has arrived, ladies and gentlemen.
 Your tax dollars at work!
 
 </Section>
+<LittleFluffyClouds></LittleFluffyClouds>
 <Section>
 ---------
 
@@ -134,6 +135,7 @@ and every life given meaning.
 
 -------
 </Section>
+<LittleFluffyClouds style="transform: rotateY(180deg)"></LittleFluffyClouds>
 <Section>
 
 ### This is the Dramatic Weather Unit.
@@ -157,7 +159,9 @@ And maybe you’d be so lucky.
 And then *it* would have happened.
 
 > (it.)
-
+</Section>
+<LittleFluffyClouds raining></LittleFluffyClouds>
+<Section>
  - Heavy news on such a heavy day
  > (Oh, the humidity!)
 
@@ -194,6 +198,7 @@ And you love movies.
 
 import Hr from "./components/Hrrr";
 import Section from "./components/Section";
+import LittleFluffyClouds from "./components/LittleFluffyClouds";
 import TitleCard from "./components/TitleCard";
 
 export default {
@@ -201,11 +206,10 @@ export default {
   components: {
     TitleCard,
     Section,
-    Hr
+    Hr,
+    LittleFluffyClouds
   },
   mounted() {}
 };
 </script>
 
-<style>
-</style>

@@ -85,36 +85,22 @@
   // animation: warble #{$duration}s ease-in-out #{$delay}s infinite;
 }
 
-.big-rain-cloud {
-  transform: translate3d(0, 0, 0);
-  @include bob-animation();
-}
-.cloud-container {
-  transform: translate3d(0, 0, 0);
-  @include track-animation($duration: 25, $delay: 8);
-}
 .the-sun {
   transform: translate3d(0, 0, 0);
   transform-origin: 0px 0px 0px;
   @include spin-animation($duration: 490);
 }
 
-#cloud {
-  // transform: translate3d(0, 0, 0);
-  @include warble-animation();
-}
+// .big-rain-cloud {
+//   transform: translate3d(0, 0, 0);
+//   @include bob-animation();
+// }
+// .cloud-container {
+//   transform: translate3d(0, 0, 0);
+//   @include track-animation($duration: 25, $delay: 8);
+// }
 
-#rain1 {
-  opacity: 0;
-  @include flicker-animation($duration: .25);
-}
-
-#rain2 {
-  opacity: 0;
-  @include flicker-animation($delay: 0.5);
-}
-
-#rain3 {
-  opacity: 0;
-  @include flicker-animation($delay: 0.8, $duration: .4);
-}
+// #cloud {
+//   // transform: translate3d(0, 0, 0);
+//   @include warble-animation();
+// }

@@ -4,7 +4,7 @@
     <!-- <img src="./../assets/cloud-o.svg" /> -->
   <!-- </div> -->
   <div class="cloud-container">
-    <RainCloud class="big-rain-cloud"></RainCloud>
+    <RainCloud class="big-rain-cloud" raining bob track/>
   </div>
   <h1 class="title">
     <transition-group
@@ -79,8 +79,9 @@ h1 {
   font-size: calc(10px + 4vh);
 }
 .title-card {
-  height: 100vh;
-  display: flex;
+  height: 120vh;
+  padding-top: 10vh;
+  // display: flex;
   flex-direction: column;
   justify-content: center;
 }
