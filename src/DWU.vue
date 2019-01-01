@@ -165,7 +165,7 @@ And then *it* would have happened.
  - Heavy news on such a heavy day
  > (Oh, the humidity!)
 
- - A nudge sideways and a ray of sunlight like a spotlight.  
+ - A nudge sideways when a ray of sunlight acts as spotlight.  
  - A stranger stranded.  
  - Sheets and sheets and sheets of rain.  
  - A light in the fog.  
@@ -175,8 +175,8 @@ And then, as the snow melts and warm fingers of sunshine cut through the winter 
 
 And in late fall, when the air falls cold as fast as the wind can clear it away, and the dry leaves skitter and whirl over the asphalt — They spark the wanderlust in you again, without even lifting a finger.
 
-And don’t even get me started 
- - on the shit they pull with rainbows.
+> (And don’t even get me started  
+> on the shit they pull with rainbows.)
 
 </Section>
 <Section class="-c">
