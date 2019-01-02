@@ -15,7 +15,7 @@
     <div v-if="cloudCover > 0" class="cloud-container">
       <RainCloud class="big-rain-cloud" :raining="raining" bob :track="windy"></RainCloud>
     </div>
-    <div v-if="cloudCover > 0" class="clouds-countainer">
+    <div v-if="cloudCover > 0 && cloudArray" class="clouds-countainer">
       <div v-for="cloud in clouds" :key="cloud.scale" class="array-cloud"           :style="{left: cloud.left+'%'}" >
         <RainCloud 
           class="array-of-cloud"
@@ -44,7 +44,8 @@ export default {
     };
   },
   props: {
-    weatherConditions: { type: String, default: "clear" }
+    weatherConditions: { type: String, default: "clear" },
+    cloudArray: { type: Boolean }
   },
   computed: {
     raining() {
@@ -83,7 +84,6 @@ export default {
           coverage += scale / 10;
         }
       }
-      console.log(clouds);
       return clouds;
     }
   },

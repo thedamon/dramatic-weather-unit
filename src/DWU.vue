@@ -187,7 +187,7 @@ And in late fall, when the air falls cold as fast as the wind can clear it away,
 And you love them.  
 Because they make your life like a movie.  
 And you love movies.
-      </Playground>
+</Playground>
       </div>
     </main>
   </div>

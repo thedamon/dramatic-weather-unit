@@ -1,7 +1,7 @@
 
 <template>
   <div class="playground-section">
-    <Weather :weatherConditions="weatherConditions"></Weather>
+    <Weather :weatherConditions="weatherConditions" cloudArray></Weather>
     <Poetry class="-c">
       <slot></slot>
     </Poetry>
