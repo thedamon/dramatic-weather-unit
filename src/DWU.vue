@@ -165,11 +165,11 @@ And then *it* would have happened.
  - Heavy news on such a heavy day
  > (Oh, the humidity!)
 
- - A nudge sideways when a ray of sunlight acts as spotlight.  
- - A stranger stranded.  
+ - A stranger stranded in the mist.  
+ - A ray of sunlight acts as a spotlight.  
  - Sheets and sheets and sheets of rain.  
  - A light in the fog.  
- - A careful winter blizzard set-piece.
+ - A thick pillow of snow to suppress the cries.
 
 And then, as the snow melts and warm fingers of sunshine cut through the winter for the first time this year, they’ll send you outside with someone. Just for a casual stroll, maybe grab lunch? And whoever it is, you *will* fall in love with that person.
 
@@ -179,7 +179,7 @@ And in late fall, when the air falls cold as fast as the wind can clear it away,
 > on the shit they pull with rainbows.)
 
 </Section>
-<Section class="-c">
+<Playground>
  
 ### This is the dramatic weather unit.
 
@@ -187,7 +187,7 @@ And in late fall, when the air falls cold as fast as the wind can clear it away,
 And you love them.  
 Because they make your life like a movie.  
 And you love movies.
-      </Section>
+      </Playground>
       </div>
     </main>
   </div>
@@ -195,19 +195,18 @@ And you love movies.
 
 <script>
 // TODO: react to live weather data and day/night.
-
-import Hr from "./components/Hrrr";
 import Section from "./components/Section";
 import LittleFluffyClouds from "./components/LittleFluffyClouds";
 import TitleCard from "./components/TitleCard";
+import Playground from "./components/Playground";
 
 export default {
   name: "dramatic-weather-unit",
   components: {
-    TitleCard,
     Section,
-    Hr,
-    LittleFluffyClouds
+    LittleFluffyClouds,
+    TitleCard,
+    Playground
   },
   mounted() {}
 };

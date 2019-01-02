@@ -111,7 +111,7 @@ h1 {
 }
 
 $head-height: 100vh;
-$bridge-height: 120vh;
+$bridge-height: 160vh;
 $overlap: 60vh;
 $main-bg: rgba(255,255,255,1);
 $main-offset: $head-height + $bridge-height;
@@ -122,12 +122,9 @@ main {
   // padding-top: 100vh;
   position: relative;
   margin-top: $main-offset;
-  padding-top: 160px;
+  padding-top: 30vh;
 }
 
-.poem {
-  padding-bottom: 50vh;
-}
 main::before {
   content: "";
   height: $bridge-height;
@@ -183,5 +180,5 @@ svg {
   position: absolute;
   top: 0;
   right: -20px;
-  top: 15vh;
+  top: 25vh;
 }

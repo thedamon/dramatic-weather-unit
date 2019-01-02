@@ -1,11 +1,6 @@
 <template>
 <div class="title-card">
-  <!-- <div class="cloud-container"> -->
-    <!-- <img src="./../assets/cloud-o.svg" /> -->
-  <!-- </div> -->
-  <div class="cloud-container">
-    <RainCloud class="big-rain-cloud" raining bob track/>
-  </div>
+  <Weather :weatherConditions="currentWeather"></Weather>
   <h1 class="title">
     <transition-group
       name="staggered-in"
@@ -21,13 +16,14 @@
 </template>
 
 <script>
-import RainCloud from "./RainCloud";
+import Weather from "./Weather";
 export default {
   name: "title-card",
-  components: { RainCloud },
+  components: { Weather },
   data() {
     return {
-      text: ""
+      text: "",
+      currentWeather: "raining"
     };
   },
   props: {
@@ -47,11 +43,6 @@ export default {
         prevTotal += delay;
         return prevTotal;
       });
-      // return this.lines.map((line, i) => {
-      //   let delay = 250 + line.length * 200;
-      //   prevTotal += delay;
-      //   return prevTotal;
-      // });
     }
   },
   mounted() {
@@ -63,7 +54,6 @@ export default {
     },
     enter(el, done) {
       let delay = this.delays[el.dataset.index];
-      console.log(delay);
       setTimeout(function() {
         el.style.opacity = 1;
       }, delay);
@@ -81,7 +71,6 @@ h1 {
 .title-card {
   height: 120vh;
   padding-top: 10vh;
-  // display: flex;
   flex-direction: column;
   justify-content: center;
 }
@@ -103,12 +92,5 @@ h1 {
 
 .line {
   transition: opacity 0.5s;
-}
-
-.big-rain-cloud {
-  position: absolute;
-  top: -10vw;
-  right: 0vw;
-  width: 50vw;
 }
 </style>

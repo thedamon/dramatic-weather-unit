@@ -9,7 +9,7 @@
 import Poetry from "./Poetry";
 
 export default {
-  name: "section",
+  name: "section-",
   components: { Poetry },
   mixins: [],
   props: {},
