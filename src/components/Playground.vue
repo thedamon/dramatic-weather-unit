@@ -35,6 +35,8 @@ export default {
 .playground-section {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 .weather-input {
   position: absolute;
