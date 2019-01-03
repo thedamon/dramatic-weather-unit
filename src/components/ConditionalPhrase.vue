@@ -40,7 +40,7 @@ const phrases = [
   `the breeze carries the warmth of the day and the serene cool of the evening woven together and everything becomes possible`,
   `you breathe that air and realize the thing you should have realized years ago`,
   `A necessary truth buried in that delicious pain.`,
-  `Your ears burning in the whipping wind.```,
+  `Your ears burning in the whipping wind.`,
   ``,
   `It starts to rain cold and you just stand there just getting drenched`,
   `Electricity arcing off the electric lines`,
