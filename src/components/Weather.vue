@@ -1,38 +1,41 @@
 <template>
   <div class="weather-container" :class="`weather-${weatherConditions}`">
     <div class="stats" v-if="stats">
-      <span v-if="sunny">sun, </span>
-      <span v-if="raining">rain, </span>
-      <span v-if="snowing">snow, </span>
-      <span v-if="windy">wind, </span>
+      <span v-if="it.isSunny">sun, </span>
+      <span v-if="it.isRaining">rain, </span>
+      <span v-if="it.isSnowing">snow, </span>
+      <span v-if="it.isWindy">wind, </span>
       {{ clouds.length }} clouds,
-      <span v-if="limitedVisibility">limited visibility, </span>
-      cloud cover: <progress :value="cloudCover" max="1">,
+      <span v-if="it.isLimitedVisibility">limited visibility, </span>
+      cloud cover: <progress :value="it.cloudCover" max="1">,
     </div>
-    <div v-if="sunny" class="sun-container">
+    <div v-if="it.isSunny" class="sun-container">
       <img class="the-sun" src="../assets/sun.svg">
     </div>
-    <div v-if="cloudCover > 0" class="cloud-container">
-      <RainCloud class="big-rain-cloud" :raining="raining" bob :track="windy"></RainCloud>
+    <div v-if="it.cloudCover > 0" class="cloud-container">
+      <RainCloud class="big-rain-cloud" :raining="it.isRaining" bob :track="it.isWindy"></RainCloud>
     </div>
-    <div v-if="cloudCover > 0 && cloudArray" class="clouds-countainer">
+    <div v-if="it.cloudCover > 0 && cloudArray" class="clouds-countainer">
       <div v-for="cloud in clouds" :key="cloud.scale" class="array-cloud"           :style="{left: cloud.left+'%'}" >
         <RainCloud 
           class="array-of-cloud"
-          :raining="raining" 
+          :raining="it.isRaining" 
           bob 
-          :track="windy" 
+          :track="it.isWindy" 
           :size="cloud.scale" 
         ></RainCloud>
       </div>
     </div>
-    <div v-if="limitedVisibility" class="fog"></div>
+    <div v-if="it.isLimitedVisibility" class="fog"></div>
   </div>
 </template>
 
 <script>
 import RainCloud from "./RainCloud";
-import weather, { somewhereBtwn } from "./../weather";
+import weather from "./../weather";
+import { somewhereBtwn } from "./../utils";
+
+console.log(somewhereBtwn);
 
 export default {
   name: "weather-",
@@ -48,32 +51,17 @@ export default {
     cloudArray: { type: Boolean }
   },
   computed: {
-    raining() {
-      return weather.isRaining(this.weatherConditions);
-    },
-    sunny() {
-      return weather.isSunny(this.weatherConditions);
-    },
-    snowing() {
-      return weather.isSnowing(this.weatherConditions);
-    },
-    windy() {
-      return weather.isWindy(this.weatherConditions);
-    },
-    limitedVisibility() {
-      return weather.isLimitedVisibility(this.weatherConditions);
-    },
-    cloudCover() {
-      return weather.cloudCover(this.weatherConditions);
+    it() {
+      return weather.weatherObject(this.weatherConditions);
     },
     clouds() {
       const clouds = [];
-      if (this.cloudCover > 0) {
+      if (this.it.cloudCover > 0) {
         let i = 0;
-        let defaultSpacing = this.cloudCover;
+        let defaultSpacing = this.it.cloudCover;
         let coverage = 0;
-        while (coverage < this.cloudCover && i < 200) {
-          let scale = weather.somewhereBtwn(0.5, 2);
+        while (coverage < this.it.cloudCover && i < 200) {
+          let scale = somewhereBtwn(0.5, 2);
           let left = (i + 1) * defaultSpacing * 10;
           let cloud = {
             scale,

@@ -5,7 +5,11 @@
     <Poetry class="-c">
       <slot></slot>
     </Poetry>
-    <WeatherConditionsInput class="weather-input" v-model="weatherConditions"></WeatherConditionsInput>
+    <WeatherConditionsInput 
+      class="weather-input" 
+      v-model="weatherConditions"
+      format="all"
+    ></WeatherConditionsInput>
   </div>
 </template>
 

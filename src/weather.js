@@ -1,3 +1,5 @@
+import { somewhereBtwn } from './utils';
+
 export const weatherConditions = [
   'clear',
   'sunny',
@@ -67,10 +69,6 @@ export function isLimitedVisibility(condition) {
   return ['haze', 'fog', 'smoke', 'mist', 'dust'].includes(condition);
 }
 
-export function somewhereBtwn(min, max) {
-  return (Math.floor(Math.random() * max * 100) + min * 100) / 100;
-}
-
 export function cloudCover(condition) {
   if (['icy', 'haze', 'fog', 'dust', 'smoke'].includes(condition))
     return somewhereBtwn(0.3, 1);
@@ -97,15 +95,26 @@ export function cloudCover(condition) {
   return 0;
 }
 
+export function weatherObject(condition) {
+  return {
+    isWindy: isWindy(condition),
+    isSnowing: isSnowing(condition),
+    isRaining: isRaining(condition),
+    isSunny: isSunny(condition),
+    isLimitedVisibility: isLimitedVisibility(condition),
+    cloudCover: cloudCover(condition)
+  };
+}
+
 weatherConditions.forEach(c => cloudCover(c));
 
 export default {
   weatherConditions,
+  weatherObject,
   isRaining,
   isSunny,
   cloudCover,
   isSnowing,
   isWindy,
-  isLimitedVisibility,
-  somewhereBtwn
+  isLimitedVisibility
 };
