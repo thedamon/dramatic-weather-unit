@@ -35,8 +35,6 @@ import RainCloud from "./RainCloud";
 import weather from "./../weather";
 import { somewhereBtwn } from "./../utils";
 
-console.log(somewhereBtwn);
-
 export default {
   name: "weather-",
   components: { RainCloud },

@@ -121,7 +121,7 @@ Plans scaled back.
 Budget cuts and  
 corners cut. 
 
-They’d be called pathetic, or worse, the whole department a preposterous fallacy.  
+They’d be called "the meteorillogical agency", or worse, pathetic, and a preposterous fallacy.  
 But you have to make concessions, here and there, to exist within a system that doesn’t intrinsically value your perspective on which shit matters — and which shit’s shit.
 
 <div class="-c">
