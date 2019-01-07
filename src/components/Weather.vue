@@ -9,35 +9,47 @@
       <span v-if="it.isLimitedVisibility">limited visibility, </span>
       cloud cover: <progress :value="it.cloudCover" max="1">,
     </div>
-    <div v-if="it.isSunny" class="sun-container">
-      <img class="the-sun" src="../assets/sun.svg">
-    </div>
+    <FadeTransition :duration="1000">
+      <div v-if="it.isSunny" class="sun-container">
+        <img class="the-sun" src="../assets/sun.svg">
+      </div>
+    </FadeTransition>
     <div v-if="it.cloudCover > 0" class="cloud-container">
       <RainCloud class="big-rain-cloud" :raining="it.isRaining" bob :track="it.isWindy"></RainCloud>
     </div>
-    <div v-if="it.cloudCover > 0 && cloudArray" class="clouds-countainer">
-      <div v-for="cloud in clouds" :key="cloud.scale" class="array-cloud"           :style="{left: cloud.left+'%'}" >
-        <RainCloud 
-          class="array-of-cloud"
-          :raining="it.isRaining" 
-          bob 
-          :track="it.isWindy" 
-          :size="cloud.scale" 
-        ></RainCloud>
-      </div>
-    </div>
-    <div v-if="it.isLimitedVisibility" class="fog"></div>
+
+    <FadeTransition :duration="1000">
+      <transition-group v-if="it.cloudCover > 0 && cloudArray" name="clouds" tag="div" class="clouds-countainer">
+        <div 
+          v-for="cloud in clouds" 
+          class="array-cloud"
+          :style="{left: cloud.left+'%'}"
+          :key="cloud.id"
+        >
+          <RainCloud 
+            class="array-of-cloud"
+            :raining="it.isRaining" 
+            bob 
+            :track="it.isWindy" 
+            :size="cloud.scale" 
+          ></RainCloud>
+        </div>
+      </transition-group>
+    </FadeTransition>
+    <div :style="{opacity: it.isLimitedVisibility ? 1 : 0}" class="fog"></div>
   </div>
 </template>
 
 <script>
+import { FadeTransition } from "vue2-transitions";
+
 import RainCloud from "./RainCloud";
 import weather from "./../weather";
 import { somewhereBtwn } from "./../utils";
 
 export default {
   name: "weather-",
-  components: { RainCloud },
+  components: { RainCloud, FadeTransition },
   data() {
     return {
       stats: true,
@@ -62,6 +74,7 @@ export default {
           let scale = somewhereBtwn(0.5, 2);
           let left = (i + 1) * defaultSpacing * 10;
           let cloud = {
+            id: clouds.length,
             scale,
             left
           };
@@ -78,7 +91,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 h1 {
   margin: 0;
   line-height: 12vh;
@@ -97,6 +110,21 @@ h1 {
   position: relative;
 }
 
+.clouds-countainer,
+.clouds-countainer * {
+  transition: all 2s;
+}
+
+.cloud-style {
+  transition: transform 2s;
+}
+
+// cloud transition
+.clouds-enter,
+.clouds-leave-to {
+  opacity: 0;
+}
+
 .array-cloud {
   position: absolute;
   top: 0;
@@ -111,6 +139,7 @@ h1 {
 }
 
 .fog {
+  transition: opacity 3s;
   position: absolute;
   top: 20%;
   left: 0;

@@ -64,24 +64,35 @@
                     100, 100, 0, 1);}
 }
 
+@mixin accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
 @mixin bob-animation($duration: 6, $delay: 0){
   animation: bob #{$duration}s cubic-bezier(0.63, 0.14, 0.6, 0.85) #{$delay}s infinite; 
+  @include accelerate();
 }
 
 @mixin track-animation($duration: 10, $delay: 0){
   animation: track #{$duration}s ease-in-out #{$delay}s infinite;
+  @include accelerate();
 }
 
 @mixin spin-animation($duration: 10, $delay: 0){
+  @include accelerate();
   transform-origin: 50% 50%;
   animation: spin #{$duration}s linear #{$delay}s infinite;
 }
 
 @mixin flicker-animation ($duration: .3, $delay: 0){
+  @include accelerate();
   animation: flicker #{$duration}s linear #{$delay}s infinite;
 }
 
 @mixin warble-animation($duration: 40, $delay: 0){
+  // @include accelerate();
   // animation: warble #{$duration}s ease-in-out #{$delay}s infinite;
 }
 

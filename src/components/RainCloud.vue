@@ -3,8 +3,8 @@
     class="rain-cloud-container" 
     :class="{raining, flipX, bob, track}" 
   >
-    <div :style="styleObject">
-      <div class="extra-div">
+    <div class="cloud-style" :style="styleObject">
+      <div class="hover-transition">
         <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 612 612" preserveAspectRatio="xMinYMin meet">
           <g :id="`cloud${id}-cloud`" class="cloud-cloud">
             <g class="st0">
@@ -173,6 +173,8 @@ export default {
 @import "./../styles/animations";
 
 .rain-cloud-container {
+  transition: all 1s;
+
   transform-origin: 50% 70%;
   .st0 {
     opacity: 0.65;
@@ -217,7 +219,7 @@ export default {
     }
   }
 
-  .extra-div {
+  .hover-transition {
     transition: transform 1s ease-in-out;
     transform: scale(1);
     &:hover {

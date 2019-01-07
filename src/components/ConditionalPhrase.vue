@@ -42,9 +42,9 @@ const phrases = [
   `A necessary truth buried in that delicious pain.`,
   `Your ears burning in the whipping wind.`,
   ``,
-  `It starts to rain cold and you just stand there just getting drenched`,
+  `It starts to rain cold and you just stand there; just getting drenched`,
   `Electricity arcing off the electric lines`,
-  `Isn't it neat how one feeling can go out and find its forgotten twin deep inside your memory`,
+  `Isn't it neat how one feeling can go out and find its forgotten twin deeply deep inside your memory`,
   `Lying in the long wet night grass.`,
   ``,
   `A drop's drop in a universe of buckets`

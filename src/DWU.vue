@@ -7,9 +7,6 @@
     </header>
     <main>
       <div class="poem">
-        <div class="sun-container">
-          <img class="the-sun" src="./assets/sun.svg">
-        </div>
       <Section>
 This is the dramatic weather unit.
       </Section>
