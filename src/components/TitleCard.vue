@@ -1,5 +1,5 @@
 <template>
-<div class="title-card">
+<div class="title-card" v-show="showing">
   <Weather :weatherConditions="currentWeather"></Weather>
   <h1 class="title">
     <transition-group
@@ -16,12 +16,15 @@
 </template>
 
 <script>
+import debounce from "lodash.debounce";
 import Weather from "./Weather";
+
 export default {
   name: "title-card",
   components: { Weather },
   data() {
     return {
+      showing: true,
       text: "",
       currentWeather: "raining"
     };
@@ -47,6 +50,20 @@ export default {
   },
   mounted() {
     this.text = this.$slots.default ? this.$slots.default[0].text : "";
+
+    // add removeeventlistener if there's a situation this component will ever not be there.
+    window.addEventListener(
+      "scroll",
+      debounce(() => {
+        const clearance = window.innerHeight * 3;
+        const scrollY = window.scrollY;
+        if (scrollY > clearance && this.showing) {
+          this.showing = false;
+        } else if (scrollY <= clearance && !this.showing) {
+          this.showing = true;
+        }
+      }, 150)
+    );
   },
   methods: {
     beforeEnter(el) {
