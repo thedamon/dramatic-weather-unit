@@ -196,7 +196,7 @@ export default {
   //states
 
   &.track {
-    @include track-animation($duration: 25, $delay: 8);
+    @include track-animation($duration: 25, $delay: 2);
   }
 
   &.bob svg {

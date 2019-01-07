@@ -44,6 +44,7 @@ Sip at your beer.
 Maybe tidy up the kitchen counter.</div>
 
       </Section>
+<div class="forthcoming-illustration"></div>
       <Section>
 
 That’s when they’ve failed.
@@ -157,7 +158,7 @@ And then *it* would have happened.
 
 > (it.)
 </Section>
-<LittleFluffyClouds raining></LittleFluffyClouds>
+<div class="forthcoming-illustration"></div>
 <Section>
  - Heavy news on such a heavy day
  > (Oh, the humidity!)
@@ -209,3 +210,11 @@ export default {
 };
 </script>
 
+<style>
+.forthcoming-illustration {
+  width: 80vw;
+  height: 80vh;
+  border: 25px solid #666;
+  margin: 40px auto;
+}
+</style>
