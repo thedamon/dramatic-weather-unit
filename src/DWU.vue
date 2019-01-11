@@ -216,5 +216,6 @@ export default {
   height: 80vh;
   border: 25px solid #666;
   margin: 40px auto;
+  box-shadow: 10px 10px #ddd;
 }
 </style>

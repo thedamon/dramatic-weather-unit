@@ -1,6 +1,11 @@
 <template>
 <div class="title-card" v-show="showing">
-  <Weather :weatherConditions="currentWeather"></Weather>
+  <Weather :weatherConditions="currentConditions"></Weather>
+  <div v-if="locData.city && weatherData.condition" class="floater-box">
+    <p>{{ locData.city }}, {{locData.country}}</p>
+    <p>{{ weatherData.temp }}°, {{weatherData.condition}}</p>
+    {{ weatherData }}
+  </div>
   <h1 class="title">
     <transition-group
       name="staggered-in"
@@ -18,6 +23,7 @@
 <script>
 import debounce from "lodash.debounce";
 import Weather from "./Weather";
+import { getCurrentWeatherConditions, getLocation } from "./../currentWeather";
 
 export default {
   name: "title-card",
@@ -26,7 +32,8 @@ export default {
     return {
       showing: true,
       text: "",
-      currentWeather: "raining"
+      locData: {},
+      weatherData: {}
     };
   },
   props: {
@@ -46,10 +53,19 @@ export default {
         prevTotal += delay;
         return prevTotal;
       });
+    },
+    currentConditions() {
+      if (this.weatherData && this.weatherData.condition) {
+        return this.weatherData.condition;
+      } else {
+        return "Rain";
+      }
     }
   },
   mounted() {
     this.text = this.$slots.default ? this.$slots.default[0].text : "";
+
+    this.getCurrentWeather();
 
     // add removeeventlistener if there's a situation this component will ever not be there.
     window.addEventListener(
@@ -66,6 +82,11 @@ export default {
     );
   },
   methods: {
+    getCurrentWeather: async function() {
+      this.locData = await getLocation();
+      const weather = await getCurrentWeatherConditions(await this.locData);
+      this.weatherData = await weather.summary;
+    },
     beforeEnter(el) {
       el.style.opacity = 0;
     },
@@ -79,7 +100,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 h1 {
   margin: 0;
   line-height: 12vh;
@@ -109,5 +130,20 @@ h1 {
 
 .line {
   transition: opacity 0.5s;
+}
+
+.floater-box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 240px;
+  font-size: 10px;
+  border: 1px solid white;
+  padding: 5px 10px;
+
+  p {
+    margin: 10px 0;
+    line-height: 1.2;
+  }
 }
 </style>

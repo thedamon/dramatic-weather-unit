@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import Vue from 'vue';
 import DWU from './DWU.vue';
 
