@@ -146,7 +146,18 @@ function diurnalize(sys) {
   const sunsetTime = `${sunset.getHours()}:${sunset.getMinutes()}`;
   const nowTime = `${now.getHours()}:${now.getMinutes()}`;
 
-  console.log(sunriseTime);
-  console.log(sunsetTime);
-  console.log(nowTime);
+  const sunriseHr = sunrise.getHours();
+  const sunsetHr = sunset.getHours();
+  const nowHr = now.getHours();
+
+  if (nowHr < sunriseHr || nowHr > sunsetHr) {
+    return 'night';
+  }
+  if (nowHr === sunriseHr) {
+    return 'sunrise';
+  }
+  if (nowHr === sunsetHr) {
+    return 'sunset';
+  }
+  return 'day';
 }
