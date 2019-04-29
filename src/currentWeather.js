@@ -48,7 +48,7 @@ function summarizeOpenWeather(w) {
   const summary = {
     sunrise: new Date(w.sys.sunrise * 1000),
     sunset: new Date(w.sys.sunset * 1000),
-    day: diurnalize(w.sys),
+    timeOfDay: diurnalize(w.sys),
     visibility: w.visibility,
     wind: {
       ...describeWind(w.wind.speed),
@@ -82,33 +82,28 @@ function getOpenWeatherUrl(locData) {
 }
 
 function cardinalize(deg) {
+  // prettier-ignore
   const directions = [
-    'N',
-    'NNE',
-    'NE',
-    'ENE',
-    'E',
-    'ESE',
-    'SE',
-    'SSE',
-    'S',
-    'SSW',
-    'SW',
-    'WSW',
-    'W',
-    'WNW',
-    'NW',
-    'NNW'
+    'N', 'NNE', 'NE', 'ENE', 
+    'E', 'ESE', 'SE', 'SSE', 
+    'S', 'SSW', 'SW', 'WSW', 
+    'W', 'WNW', 'NW', 'NNW'
   ];
   let val = parseInt(deg / 22.5 + 0.5);
   return directions[val % 16];
 }
 
 function describeWind(mps) {
+  if (mps < 2.5) {
+    return {
+      severity: 0,
+      desc: 'still'
+    };
+  }
   if (mps < 5) {
     return {
       severity: 1,
-      desc: 'still'
+      desc: 'gentle breeze'
     };
   }
   if (mps < 10) {
