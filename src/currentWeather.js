@@ -47,6 +47,8 @@ export async function getCurrentWeatherConditions(locData) {
 }
 
 function summarizeOpenWeather(w) {
+  const internal = getWeatherCondition(w.weather[0].description);
+  console.log(internal);
   const summary = {
     sunrise: new Date(w.sys.sunrise * 1000),
     sunset: new Date(w.sys.sunset * 1000),
@@ -63,7 +65,7 @@ function summarizeOpenWeather(w) {
     condition: w.weather[0].main,
     description: w.weather[0].description,
     // conditionName: getConditionName(w.weather[0].main),
-    internal: getWeatherCondition(w.weather[0].description)
+    internal
   };
   w.summary = summary;
   return w;
@@ -181,6 +183,7 @@ function getConditionName(apiName) {
 }
 
 function getWeatherCondition(description) {
+  console.log(description);
   return openWeatherConditions.find(cnd => cnd.description === description);
 }
 
@@ -188,52 +191,52 @@ const openWeatherConditions = [
   {
     main: 'Thunderstorm',
     description: 'thunderstorm with light rain',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'thunderstorm with rain',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'thunderstorm with heavy rain',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'light thunderstorm',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'thunderstorm',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'heavy thunderstorm',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'ragged thunderstorm',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'thunderstorm with light drizzle',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'thunderstorm with drizzle',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Thunderstorm',
     description: 'thunderstorm with heavy drizzle',
-    icon: weatherEmoji.thunderstorm
+    icon: weatherEmoji.thunderCloudAndRain
   },
   {
     main: 'Drizzle',

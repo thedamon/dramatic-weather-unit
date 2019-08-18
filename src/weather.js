@@ -42,7 +42,7 @@ export const weatherEmoji = {
   sunBehindCloud: { emoji: '⛅', path: 'sun-behind-cloud' },
   sunBehindLargeCloud: { emoji: '🌥', path: 'sun-behind-large-cloud' },
   cloud: { emoji: '☁️', path: 'cloud' },
-  thundercloudAndRain: { emoji: '⛈', path: 'thunder-cloud-and-rain' },
+  thunderCloudAndRain: { emoji: '⛈', path: 'thunder-cloud-and-rain' },
   cloudWithRain: { emoji: '🌧', path: 'cloud-with-rain' },
   cloudWithSnow: { emoji: '🌨', path: 'cloud-with-snow' },
   fog: { emoji: '🌫', path: 'fog' },
