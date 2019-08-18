@@ -1,5 +1,7 @@
 import { somewhereBtwn } from './utils';
 
+// function api
+
 export const weatherConditions = [
   'clear',
   'sunny',
@@ -33,6 +35,56 @@ export const weatherConditions = [
   'rainbow',
   'sunshower'
 ];
+
+export const weatherEmoji = {
+  sunWithRays: { emoji: '☀️', path: 'sun-with-rays' },
+  sunWithSmallCloud: { emoji: '🌤️', path: 'sun-with-small-cloud' },
+  sunBehindCloud: { emoji: '⛅', path: 'sun-behind-cloud' },
+  sunBehindLargeCloud: { emoji: '🌥', path: 'sun-behind-large-cloud' },
+  cloud: { emoji: '☁️', path: 'cloud' },
+  thundercloudAndRain: { emoji: '⛈', path: 'thunder-cloud-and-rain' },
+  cloudWithRain: { emoji: '🌧', path: 'cloud-with-rain' },
+  cloudWithSnow: { emoji: '🌨', path: 'cloud-with-snow' },
+  fog: { emoji: '🌫', path: 'fog' },
+  cloudWithTornado: { emoji: '🌪', path: 'cloud-with-tornado' },
+  windBlowingFace: { emoji: '🌬', path: 'wind-blowing-face' },
+  rainbow: { emoji: '🌈', path: 'rainbow' },
+  sunBehindCloudWithRain: { emoji: '🌦', path: 'sun-behind-cloud-with-rain' }
+};
+
+export const emojiMap = {
+  clear: weatherEmoji.sunWithRays,
+  sunny: weatherEmoji.sunWithRays,
+  'partly-sunny': weatherEmoji.sunWithSmallCloud,
+  'mostly-sunny': weatherEmoji.sunWithSmallCloud,
+  'partly-cloudy': weatherEmoji.sunBehindCloud,
+  'mostly-cloudy': weatherEmoji.sunBehindLargeCloud,
+  cloudy: weatherEmoji.cloud,
+  overcast: weatherEmoji.cloud,
+  'scattered-thunderstorms': weatherEmoji.thunderCloudAndRain,
+  thunderstorm: weatherEmoji.thunderCloudAndRain,
+  showers: weatherEmoji.cloudWithRain,
+  'scattered-showers': weatherEmoji.cloudWithRain,
+  'light-rain': weatherEmoji.cloudWithRain,
+  rain: weatherEmoji.cloudWithRain,
+  'rain-and-snow': weatherEmoji.cloudWithRain,
+  'light-snow': weatherEmoji.cloudWithSnow,
+  snow: weatherEmoji.cloudWithSnow,
+  'snow-showers': weatherEmoji.cloudWithSnow,
+  flurries: weatherEmoji.cloudWithSnow,
+  'freezing-drizzle': weatherEmoji.cloudWithSnow,
+  sleet: weatherEmoji.cloudWithSnow,
+  hail: weatherEmoji.cloudWithSnow,
+  mist: weatherEmoji.fog,
+  fog: weatherEmoji.fog,
+  haze: weatherEmoji.fog,
+  storm: weatherEmoji.cloudWithTornado,
+  icy: weatherEmoji.windBlowingFace,
+  dust: weatherEmoji.fog,
+  smoke: weatherEmoji.fog,
+  rainbow: weatherEmoji.rainbow,
+  sunshower: weatherEmoji.sunBehindCloudWithRain
+};
 
 export function isRaining(condition) {
   return (
