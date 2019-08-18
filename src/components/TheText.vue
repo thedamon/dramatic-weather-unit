@@ -1,10 +1,10 @@
 <template>
 <main>
       <div class="poem">
-      <Section>
+      <Section class="the-title">
 This is the Dramatic Weather Agency.
       </Section>
-      <Section>
+      <Section class="the-intro">
 
  - Whenever <span>you’re</span> taken by a strange urge  
  - and you find yourself standing in the middle of the street  
@@ -39,7 +39,7 @@ Maybe tidy up the kitchen counter.</div>
 
       </Section>
 <div class="forthcoming-illustration"></div>
-      <Section>
+      <Section class="the-agency">
 
 That’s when they’ve failed.
 
@@ -90,7 +90,7 @@ Your tax dollars at work!
 
 </Section>
 <LittleFluffyClouds></LittleFluffyClouds>
-<Section>
+<Section class="the-backstory">
 ---------
 
 Ever since way back then, yes, back, there, in the day, when a lawmaker looked up from his desk and out the window at all that out there and proclaimed:
@@ -128,7 +128,7 @@ and every life given meaning.
 -------
 </Section>
 <LittleFluffyClouds style="transform: rotateY(180deg)"></LittleFluffyClouds>
-<Section>
+<Section class="the-mission">
 
 ### This is the Dramatic Weather Agency.
 
@@ -153,7 +153,7 @@ And then *it* would have happened.
 > (it.)
 </Section>
 <div class="forthcoming-illustration"></div>
-<Section>
+<Section class="the-impact">
  - Heavy news on such a heavy day
  > (Oh, the humidity!)
 
@@ -197,3 +197,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.the-title {
+  margin-bottom: 25vh;
+}
+</style>
