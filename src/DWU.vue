@@ -20,7 +20,7 @@ export default {
   metaInfo(){
     return {
       link: [
-        {rel: 'icon', type:'image/png', href:`./assets/weather-emoji/${this.emojiWeatherPath}.png`}
+        {rel: 'icon', type:'image/png', href:`./weather-emoji/${this.emojiWeatherPath}.png`}
       ]
     }
   },
