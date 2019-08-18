@@ -76,8 +76,8 @@ async function fetchWeather(locData) {
 }
 
 function getOpenWeatherUrl(locData) {
-  'https://openweathermap.org/weather-conditions';
-  return `http://api.openweathermap.org/data/2.5/weather?q=${locData.city},${
+  // 'https://openweathermap.org/weather-conditions';
+  return `//api.openweathermap.org/data/2.5/weather?q=${locData.city},${
     locData.country
   }&APPID=${whaev}`;
   // const locationKey =

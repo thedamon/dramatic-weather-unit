@@ -1,6 +1,6 @@
 import { somewhereBtwn } from './utils';
 
-// function api
+// TODO: use weather descriptors from openWeatherAPI so we are matchy matchy
 
 export const weatherConditions = [
   'clear',
