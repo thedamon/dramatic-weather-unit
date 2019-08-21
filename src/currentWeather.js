@@ -73,6 +73,7 @@ function summarizeOpenWeather(w) {
 
 async function fetchWeather(locData) {
   const weatherUrl = getOpenWeatherUrl(locData);
+  // weatherUrl = .netlifycurrent-weather?city=locData
   const weather = await axios(weatherUrl);
   return await weather.data;
 }
