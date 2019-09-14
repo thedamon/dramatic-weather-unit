@@ -77,7 +77,7 @@ They check their forecast.
 Then they’re ready to go.  
 They roll out all serious.
 
-<span class="radio">*A cold front is moving toward the Eastern seaboard, creating a weather system here and here. With weather events from here to about here expected developing over the weekend, tapering off into the KSSHHHHHHHHHHHHHHHHHHHHHHH SHHHH Waaaaaaaaa. Btbtbtbt*</span>
+<span>*A cold front is moving toward the Eastern seaboard, creating a weather system here and here. With weather events from here to about here expected developing over the weekend, tapering off into the KSSHHHHHHHHHHHHHHHHHHHHHHH SHHHH Waaaaaaaaa. Btbtbtbt*</span>
 
 They roll in all serious.  
 Eyes hidden up behind dark rain or shine glasses.  
@@ -93,9 +93,9 @@ Your tax dollars at work!
 <Section class="the-backstory">
 ---------
 
-Ever since way back then, yes, back, there, in the day, when a lawmaker looked up from his desk and out the window at all that out there and proclaimed:
+Ever since way back then, yes, back, there, in the day, when a right honourable looked up from his desk and out the window at all that out there and gasped:
 
-## *Never should a sunshower be wasted!*
+## *Never would a sunshower be wasted!*
 
  - Nor a thunderstorm.  
  - Nor the whipping blizzard.  
@@ -108,12 +108,10 @@ Ever since way back then, yes, back, there, in the day, when a lawmaker looked u
  - nitty gritty 
  - of reality.  
 
-Plans drawn up.  
-Plans scaled back.  
-Budget cuts and  
-corners cut. 
+Plans drawn up. Plans scaled back.  
+Budgets cut and corners cut. 
 
-They’d be called "the meteorillogical agency", or worse, pathetic, and a preposterous fallacy.  
+<!--They’d be called "the meteorillogical agency", or worse, pathetic, and a preposterous fallacy.  -->
 But you have to make concessions, here and there, to exist within a system that doesn’t intrinsically value your perspective on which shit matters — and which shit’s shit.
 
 <div class="-c">
