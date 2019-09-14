@@ -96,7 +96,7 @@ h1 {
 }
 .title-card {
   height: 120vh;
-  padding-top: 10vh;
+  padding-top: 16vh;
   flex-direction: column;
   justify-content: center;
 }
