@@ -13,12 +13,9 @@
       {{ realWeatherSummary }}
     </div>
     <h1 class="title">
-      <transition-group
-        name="staggered-in"
-        tag="span"
-        :css="false"
-        @before-enter="beforeEnter"
-        @enter="enter"
+      <StaggerIn
+        :stepDelay="delays"
+        delayStart="1000"
       >
         <span
           v-for="(line, i) in lines"
@@ -26,7 +23,7 @@
           :key="i+line"
           :class="['line', 'line'+i]"
         >{{ line }}</span>
-      </transition-group>
+      </StaggerIn>
     </h1>
   </div>
 </template>
@@ -34,12 +31,13 @@
 <script>
 import debounce from "lodash.debounce";
 import Weather from "./Weather";
+import StaggerIn from "./StaggerIn";
 import { mapGetters } from "vuex";
 import store from "../store/store";
 
 export default {
   name: "title-card",
-  components: { Weather },
+  components: { Weather, StaggerIn },
   data() {
     return {
       showing: true,
@@ -58,11 +56,8 @@ export default {
       return typeof this.text === "string" && this.text.split(this.splitter);
     },
     delays() {
-      let prevTotal = 100;
       return [8, 8, 2, 3, 8, 5].map(n => {
-        let delay = n * 70;
-        prevTotal += delay;
-        return prevTotal;
+        return n * 70;
       });
     },
     currentConditions() {
@@ -89,17 +84,6 @@ export default {
         }
       }, 150)
     );
-  },
-  methods: {
-    beforeEnter(el) {
-      el.style.opacity = 0;
-    },
-    enter(el, done) {
-      let delay = this.delays[el.dataset.index];
-      setTimeout(function() {
-        el.style.opacity = 1;
-      }, delay);
-    }
   }
 };
 </script>

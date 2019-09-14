@@ -1,21 +1,30 @@
 <template>
-  <header>
-    <div class="intro">
-      <p>It's {{ currentTime }}.</p>
-      <p>Somewhere just outside {{ city }}.</p>
-      <p>The wind is about to shift.</p>
-    </div>
+  <header class="intro">
+    <StaggerIn
+      class="teaser"
+      tag="div"
+    >
+      <p
+        key="time"
+        data-index="0"
+      >It's {{ currentTime }}.</p>
+      <p
+        key="city"
+        data-index="1"
+      >Somewhere just outside {{ city }}.</p>
+    </StaggerIn>
     <TitleCard>This is the Dramatic Weather Agency.</TitleCard>
   </header>
 </template>
 
 <script>
 import TitleCard from "./TitleCard";
+import StaggerIn from "./StaggerIn";
 import store from "../store/store";
 
 export default {
   name: "intro",
-  components: { TitleCard },
+  components: { TitleCard, StaggerIn },
   data() {
     return {
       q: "What"
@@ -36,7 +45,7 @@ export default {
 </script>
 
 <style>
-.intro {
+.teaser {
   position: absolute;
   width: 400px;
   left: calc(50% - 200px);
