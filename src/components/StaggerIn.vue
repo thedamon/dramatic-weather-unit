@@ -6,58 +6,55 @@
     @before-enter="beforeEnter"
     @enter="enter"
   >
-    <slot v-show="started"></slot>
+    <slot></slot>
   </transition-group>
 </template>
 
 <script>
 export default {
   name: "transition-stagger-in",
-  data() {
-    return {
-      started: false
-    };
-  },
   props: {
     tag: { type: String, default: "span" },
     /**
      * a number of milliseconds, or an array of millisecondses
      */
-    stepDelay: { type: Array | Number, default: 100 },
+    stepDelay: { type: Array | Number, default: 1000 },
     delayStart: { type: Number, default: 0 },
     transition: { type: Number, default: 50 }
   },
   computed: {
     compoundDelays() {
+      console.log(this.stepDelay);
       if (Array.isArray(this.stepDelay)) {
-        return this.stepDelay.reduce(function(r, a) {
+        let compoundDelays = this.stepDelay.reduce(function(r, a) {
           r.push(((r.length && r[r.length - 1]) || 0) + a);
           return r;
         }, []);
+
+        return compoundDelays.map(delay => delay + this.delayStart);
       }
       return false;
     }
   },
   methods: {
     beforeEnter(el) {
+      console.log("before enter");
       el.style.opacity = 0;
     },
     enter(el, done) {
+      console.log("enter");
       let delay = this.compoundDelays
         ? this.compoundDelays[el.dataset.index]
-        : this.stepDelay;
+        : this.stepDelay * el.dataset.index + this.delayStart;
+
+      console.log(delay);
       setTimeout(function() {
         el.style.opacity = 1;
       }, delay);
     }
   },
   mounted() {
-    console.log("mounted");
-    setTimeout(() => {
-      console.log("started!");
-      console.log(this);
-      this.started = true;
-    }, this.delayStart);
+    console.log("staggering in");
   }
 };
 </script>

@@ -4,27 +4,7 @@
     v-show="showing"
   >
     <Weather :weatherConditions="currentConditions"></Weather>
-    <div
-      v-if="location.city && realWeatherSummary && realWeatherSummary.condition"
-      class="floater-box"
-    >
-      <p>{{realWeatherSummary.internal.icon.emoji}} {{ location.city }}, {{location.country}}</p>
-      <p>{{ realWeatherSummary.temp }}°, {{realWeatherSummary.description}}</p>
-      {{ realWeatherSummary }}
-    </div>
-    <h1 class="title">
-      <StaggerIn
-        :stepDelay="delays"
-        delayStart="1000"
-      >
-        <span
-          v-for="(line, i) in lines"
-          :data-index="i"
-          :key="i+line"
-          :class="['line', 'line'+i]"
-        >{{ line }}</span>
-      </StaggerIn>
-    </h1>
+    <h1 class="title"></h1>
   </div>
 </template>
 
@@ -121,22 +101,5 @@ h1 {
   position: relative;
   z-index: 5;
   background: rgba(#0c1a3c, 0.7);
-}
-
-.floater-box {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 240px;
-  font-size: 10px;
-  border: 1px solid white;
-  padding: 5px 10px;
-  opacity: 0.4;
-  z-index: 10;
-
-  p {
-    margin: 10px 0;
-    line-height: 1.2;
-  }
 }
 </style>

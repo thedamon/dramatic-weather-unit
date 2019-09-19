@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Debug></Debug>
     <Intro></Intro>
     <TheText>
   </div>
@@ -8,6 +9,7 @@
 <script>
 // TODO: react to live weather data and day/night.
 import Intro from "./components/Intro";
+import Debug from './components/Debug';
 import TheText from "./components/TheText";
 import store from "./store/store";
 import weather from './weather';
@@ -24,7 +26,7 @@ export default {
       ]
     }
   },
-  components: { Intro, TheText },
+  components: { Intro, TheText, Debug },
   computed:{
     ...mapGetters([
       'realWeatherSummary'
