@@ -4,7 +4,19 @@
     v-show="showing"
   >
     <Weather :weatherConditions="currentConditions"></Weather>
-    <h1 class="title"></h1>
+    <h1 class="title">
+      <StaggerIn
+        :stepDelay="delays"
+        :delayStart="1000"
+      >
+        <span
+          v-for="(line, i) in lines"
+          :data-index="i"
+          :key="i+line"
+          :class="['line', 'line'+i]"
+        >{{ line }}</span>
+      </StaggerIn>
+    </h1>
   </div>
 </template>
 

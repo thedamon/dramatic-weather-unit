@@ -3,15 +3,13 @@
     <StaggerIn
       class="teaser"
       tag="div"
+      :delayStart="1000"
     >
       <p
-        key="time"
-        data-index="0"
-      >It's {{ currentTime }}.</p>
-      <p
-        key="city"
-        data-index="1"
-      >Somewhere just outside {{ city }}.</p>
+        v-for="(line, i) in lines"
+        :key="i"
+        data-index="i"
+      >{{line}}</p>
     </StaggerIn>
     <TitleCard>This is the Dramatic Weather Agency.</TitleCard>
   </header>
@@ -39,6 +37,14 @@ export default {
     },
     city() {
       return store.state.location && store.state.location.city;
+    },
+    lines() {
+      return (
+        store.state.now && [
+          `It's ${this.currentTime}.`,
+          `Somewhere just outside ${this.city}`
+        ]
+      );
     }
   }
 };

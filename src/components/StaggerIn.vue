@@ -1,6 +1,7 @@
 <template>
   <transition-group
     name="stagger-in"
+    appear
     :tag="tag"
     :css="false"
     @before-enter="beforeEnter"
