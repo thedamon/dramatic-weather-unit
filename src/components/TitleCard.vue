@@ -7,7 +7,7 @@
     <h1 class="title">
       <StaggerIn
         :stepDelay="delays"
-        :delayStart="1000"
+        :delayStart="6000"
       >
         <span
           v-for="(line, i) in lines"
@@ -88,7 +88,6 @@ h1 {
 }
 .title-card {
   height: 120vh;
-  padding-top: 16vh;
   flex-direction: column;
   justify-content: center;
 }

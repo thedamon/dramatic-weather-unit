@@ -3,12 +3,13 @@
     <StaggerIn
       class="teaser"
       tag="div"
+      :stepDelay="2500"
       :delayStart="1000"
     >
       <p
         v-for="(line, i) in lines"
         :key="i"
-        data-index="i"
+        :data-index="i"
       >{{line}}</p>
     </StaggerIn>
     <TitleCard>This is the Dramatic Weather Agency.</TitleCard>
@@ -52,9 +53,8 @@ export default {
 
 <style>
 .teaser {
-  position: absolute;
   width: 400px;
   left: calc(50% - 200px);
-  margin: 5vh auto;
+  margin: 3vh auto;
 }
 </style>
