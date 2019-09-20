@@ -7,7 +7,7 @@
     <h1 class="title">
       <StaggerIn
         :stepDelay="delays"
-        :delayStart="6000"
+        :delayStart="5000"
       >
         <span
           v-for="(line, i) in lines"
@@ -48,7 +48,7 @@ export default {
       return typeof this.text === "string" && this.text.split(this.splitter);
     },
     delays() {
-      return [8, 8, 2, 3, 8, 5].map(n => {
+      return [0, 8, 5, 6, 11, 10, 40].map(n => {
         return n * 70;
       });
     },
