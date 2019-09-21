@@ -1,4 +1,5 @@
 import { somewhereBtwn } from './utils';
+import { kebabCase } from 'change-case';
 
 // TODO: use weather descriptors from openWeatherAPI so we are matchy matchy
 
@@ -122,28 +123,29 @@ export function isLimitedVisibility(condition) {
 }
 
 export function cloudCover(condition) {
-  if (['icy', 'haze', 'fog', 'dust', 'smoke'].includes(condition))
+  let cndtn = kebabCase(condition);
+  if (['icy', 'haze', 'fog', 'dust', 'smoke'].includes(cndtn))
     return somewhereBtwn(0.3, 1);
-  if (['cloudy', 'mist'].includes(condition)) return 0.9;
-  if (['mostly-cloudy'].includes(condition)) return 0.8;
-  if (['partly-cloudy', 'scattered-showers'].includes(condition)) return 0.6;
-  if (['partly-sunny'].includes(condition)) return 0.4;
-  if (['sunshower', 'rainbow'].includes(condition)) return 0.3;
-  if (['mostly-sunny'].includes(condition)) return 0.2;
-  if (['clear', 'sunny'].includes(condition)) return 0;
+  if (['cloudy', 'mist'].includes(cndtn)) return 0.9;
+  if (['mostly-cloudy'].includes(cndtn)) return 0.8;
+  if (['partly-cloudy', 'scattered-showers'].includes(cndtn)) return 0.6;
+  if (['partly-sunny'].includes(cndtn)) return 0.4;
+  if (['sunshower', 'rainbow'].includes(cndtn)) return 0.3;
+  if (['mostly-sunny'].includes(cndtn)) return 0.2;
+  if (['clear', 'sunny'].includes(cndtn)) return 0;
   // this last is as a catch-all
   if (
     ['overcast', 'flurries', 'sleet', 'hail', 'freezing-drizzle'].includes(
-      condition
+      cndtn
     ) ||
-    condition.includes('storm') ||
-    condition.includes('shower') ||
-    condition.includes('snow') ||
-    condition.includes('rain')
+    cndtn.includes('storm') ||
+    cndtn.includes('shower') ||
+    cndtn.includes('snow') ||
+    cndtn.includes('rain')
   ) {
     return 1;
   }
-  console.log('no cloud cover data for ' + condition);
+  console.log('no cloud cover data for ' + cndtn);
   return 0;
 }
 

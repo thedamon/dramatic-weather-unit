@@ -25,7 +25,6 @@ export default {
   },
   computed: {
     compoundDelays() {
-      console.log(this.stepDelay);
       if (Array.isArray(this.stepDelay)) {
         let compoundDelays = this.stepDelay.reduce(function(r, a) {
           r.push(((r.length && r[r.length - 1]) || 0) + a);
@@ -39,23 +38,17 @@ export default {
   },
   methods: {
     beforeEnter(el) {
-      console.log("before enter");
       el.style.opacity = 0;
     },
     enter(el, done) {
-      console.log("enter");
       let delay = this.compoundDelays
         ? this.compoundDelays[el.dataset.index]
         : this.stepDelay * el.dataset.index + this.delayStart;
 
-      console.log(delay);
       setTimeout(function() {
         el.style.opacity = 1;
       }, delay);
     }
-  },
-  mounted() {
-    console.log("staggering in");
   }
 };
 </script>

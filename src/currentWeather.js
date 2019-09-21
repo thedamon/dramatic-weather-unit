@@ -14,8 +14,26 @@ const ipUrl = 'https://ipinfo.io/json?token=84f480e53183e9';
 
 // we don't bother with location service request because this is decorative
 async function fetchLocation() {
-  const res = await axios(ipUrl);
-  return await res.data;
+  // need to gracefully fallback to London
+  try {
+    const res = await axios(ipUrl);
+    return res.data;
+  } catch (e) {
+    console.error(
+      "Ohhhhh fine. I guess we won't nefariously triangulate your location by sending your IP address to a third party. ⮐ Siiiiigh. ⮐ Roll Eyyyyyye. ⮐ Whatever, man."
+    );
+    return {
+      ip: '121.195.37.186',
+      hostname: 'nothingtoseehere',
+      city: 'London',
+      region: 'Ontario',
+      country: 'CA',
+      loc: '42.9660,-81.2053',
+      org: 'Dramatic Weather Agency',
+      postal: 'N5Z',
+      timezone: 'America/Toronto'
+    };
+  }
 }
 
 export async function getLocation() {
@@ -79,9 +97,7 @@ async function fetchWeather(locData) {
 
 function getOpenWeatherUrl(locData) {
   // 'https://openweathermap.org/weather-conditions';
-  return `//api.openweathermap.org/data/2.5/weather?q=${locData.city},${
-    locData.country
-  }&APPID=${whaev}`;
+  return `//api.openweathermap.org/data/2.5/weather?q=${locData.city},${locData.country}&APPID=${whaev}`;
   // const locationKey =
   // accuWeatherLoc: `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${locData.city},${locData.country}&apikey=${accuWeatherApiKey}`
   // accuWeather: `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}`
@@ -468,3 +484,29 @@ const openWeatherConditions = [
     icon: weatherEmoji.cloud
   }
 ];
+
+/*
+
+
+descriptions:
+
+thunderstorm
+drizzle
+light rain
+moderate rain
+heavy intensity rain
+very heavy rain
+extreme rain
+freezing rain
+light snow
+Snow
+mist
+Haze
+fog
+clear sky
+few clouds
+scattered clouds
+broken clouds
+overcast clouds
+
+*/
