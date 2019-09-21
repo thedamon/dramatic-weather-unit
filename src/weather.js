@@ -145,6 +145,7 @@ export function cloudCover(condition) {
   ) {
     return 1;
   }
+  if (cndtn.includes('cloud')) return 0.6;
   console.log('no cloud cover data for ' + cndtn);
   return 0;
 }

@@ -111,6 +111,6 @@ h1 {
   transition: opacity 0.5s;
   position: relative;
   z-index: 5;
-  background: rgba(#0c1a3c, 0.7);
+  // background: rgba(#0c1a3c, 0.7);
 }
 </style>

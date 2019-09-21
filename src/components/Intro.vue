@@ -51,7 +51,7 @@ export default {
       return (
         store.state.now && [
           `It's ${this.currentTime}.`,
-          `Somewhere just outside ${this.city}`
+          `Somewhere just outside ${this.city}.`
         ]
       );
     }
