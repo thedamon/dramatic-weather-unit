@@ -1,29 +1,15 @@
-# dramatic-weather-unit
+# The Dramatic Weather Agency
 
-## Project setup
-```
-yarn install
-```
+A poetry and svg animation experiment running on Vue.js via Parcel.
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+Words and code by [Damon Muma](http://damonmuma.com).
+Illustrations by [Antony Hare](http://ahpi.ca).
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## TODO
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [ ] Properly hide API keys through a 'server' call
+- [ ] Migrate all weather to same system (api vs playground).
+- [ ] Framework for 'scene's
+- [ ] UI for playground
+- [ ] drag and drop characters and weather
+- [ ] Title card with GSAP

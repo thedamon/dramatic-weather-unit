@@ -156,10 +156,12 @@ And then *it* would have happened.
  > (Oh, the humidity!)
 
  - A stranger stranded in the mist.  
- - A ray of sunlight acts as a spotlight.  
+ - A ray of sunlight shining a spotlight your stuff or whatever  
  - Sheets and sheets and sheets of rain.  
  - A light in the fog.  
- - A thick pillow of snow to suppress the cries.
+ - A thick pillow of snow to silence the weeping.
+
+Behind it all, a dramatic weather agent, and a mission planned out just so carefully.
 
 And then, as the snow melts and warm fingers of sunshine cut through the winter for the first time this year, they’ll send you outside with someone. Just for a casual stroll, maybe grab lunch? And whoever it is, you *will* fall in love with that person.
 

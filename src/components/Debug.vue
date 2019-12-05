@@ -35,7 +35,7 @@ export default {
   },
   mounted() {
     hotkeys("q+w+o+p", () => {
-      console.log("DEEBUGGGGGzzzz!!! 🐞");
+      console.log("DEEBUGGGGGzzzz!!!r kaming!! 🐞");
       this.debugMode = !this.debugMode;
       console.log(this.debugMode);
     });
