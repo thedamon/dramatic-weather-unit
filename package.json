@@ -16,7 +16,7 @@
     "hotkeys-js": "^3.7.2",
     "lodash.debounce": "^4.0.8",
     "lodash.sample": "^4.2.1",
-    "marked": "^0.6.1",
+    "marked": "^4.0.10",
     "parcel-plugin-asset-copier": "^1.0.0",
     "store": "^2.0.12",
     "vue": "^2.5.17",
